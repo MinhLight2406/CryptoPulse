@@ -1,14 +1,14 @@
-# Replayer Service
+# replayer
 
-Replays historical cryptocurrency market data (trades, quotes, L2 orderbook ticks) at configurable speeds using the Virtual Clock.
+**Vai trò:** Phát lại dữ liệu lịch sử với đồng hồ ảo
 
-## Features
-- Read compressed Parquet tick files from `data/parquet/`.
-- Emit events in chronological order to `cryptopulse.market.ticks.v1`.
-- Configurable playback speed (1x real-time, 10x, 100x, or discrete tick intervals).
+| | |
+|---|---|
+| Đầu vào | File Parquet trong data/parquet/ |
+| Đầu ra | Topic trades |
 
-## Running Locally
-
-```bash
-python src/main.py
-```
+## Trạng thái
+- [ ] Skeleton
+- [ ] Logic chính
+- [ ] Test
+- [ ] Dockerfile chạy được trong CI

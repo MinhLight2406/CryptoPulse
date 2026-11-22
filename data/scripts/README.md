@@ -1,7 +1,6 @@
-# Data Scripts
+# data/scripts
 
-Utility scripts for:
-- Ingesting historical cryptocurrency datasets (Binance, Coinbase, Kraken).
-- Normalizing trades and L2 orderbook deltas.
-- Converting raw JSON/CSV streams into compressed columnar Parquet files (`data/parquet/`).
-- Validating schema constraints against `data/schemas/`.
+Script tải dữ liệu lịch sử, chuẩn hóa, rồi lưu Parquet vào `data/parquet/`.
+
+Hãy kiểm tra điều khoản sử dụng của nguồn dữ liệu trước khi tải.
+File dữ liệu KHÔNG được commit (đã nằm trong `.gitignore`).

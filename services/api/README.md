@@ -1,16 +1,14 @@
-# API Gateway Service
+# api
 
-HTTP and WebSocket API gateway exposing live market simulation controls, real-time predictions, drift status, and model metrics.
+**Vai trò:** REST API cho giao diện web
 
-## Endpoints
-- `GET /health`: Service health check.
-- `GET /sim/clock`: Current virtual clock status, speed, and timestamp.
-- `POST /sim/clock/speed`: Adjust simulation speed.
-- `GET /predictions/latest`: Latest model predictions.
-- `GET /metrics`: Prometheus metrics scrape target.
+| | |
+|---|---|
+| Đầu vào | ClickHouse, Redis |
+| Đầu ra | JSON/WebSocket cho apps/web |
 
-## Running Locally
-
-```bash
-python src/main.py
-```
+## Trạng thái
+- [ ] Skeleton
+- [ ] Logic chính
+- [ ] Test
+- [ ] Dockerfile chạy được trong CI

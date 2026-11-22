@@ -1,7 +1,6 @@
-# CryptoPulse Web Application
+# web
 
-Frontend monitoring dashboard built for visualizing:
-- Real-time cryptocurrency price replay and orderbook depth.
-- Live predictions comparing Champion vs. Challenger models.
-- Accuracy scoring, MAE/RMSE charts, and PnL backtesting simulation.
-- Real-time data and concept drift heatmaps.
+Next.js + TypeScript (khởi tạo ở Giai đoạn 2).
+
+Màn hình dự kiến: Market Board, Danh sách tăng/giảm (đã xảy ra / dự đoán / theo nhóm),
+Bảng thành tích, Model Dashboard.

@@ -1,15 +1,14 @@
-# Feature Service
+# feature-service
 
-Computes real-time streaming market features over tick events consumed from the message broker.
+**Vai trò:** Tính đặc trưng theo cửa sổ 1m/5m/15m/1h
 
-## Computed Features
-- Rolling Volume-Weighted Average Price (VWAP)
-- Realized Volatility (5s, 30s, 60s windows)
-- Order Book Imbalance (bid/ask volume ratio)
-- Relative Strength Index (RSI) & Momentum indicators
+| | |
+|---|---|
+| Đầu vào | Topic trades |
+| Đầu ra | Topic features, ClickHouse, Redis |
 
-## Running Locally
-
-```bash
-python src/main.py
-```
+## Trạng thái
+- [ ] Skeleton
+- [ ] Logic chính
+- [ ] Test
+- [ ] Dockerfile chạy được trong CI

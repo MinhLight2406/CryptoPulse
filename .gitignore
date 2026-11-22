@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+.next/
+
+# Bí mật / môi trường (KHÔNG commit)
+.env
+*.pem
+
+# Dữ liệu lớn (không commit)
+data/raw/*
+data/parquet/*
+!data/raw/.gitkeep
+!data/parquet/.gitkeep
+
+# ML
+mlruns/
+mlartifacts/
+*.pkl
+*.joblib
+
+# Terraform
+.terraform/
+*.tfstate*
+
+# IDE / hệ điều hành
+.vscode/
+.idea/
+.DS_Store

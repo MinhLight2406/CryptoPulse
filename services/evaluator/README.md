@@ -1,15 +1,14 @@
-# Evaluator Service
+# evaluator
 
-Matches delayed ground-truth market prices with earlier model predictions to evaluate accuracy in real time.
+**Vai trò:** Chấm điểm dự đoán khi nhãn thật đến
 
-## Metrics Computed
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- Directional Accuracy (% of correct price movement predictions)
-- Profit & Loss (PnL) simulation under basic execution assumptions
+| | |
+|---|---|
+| Đầu vào | Topic predictions, trades |
+| Đầu ra | Topic labels, ClickHouse |
 
-## Running Locally
-
-```bash
-python src/main.py
-```
+## Trạng thái
+- [ ] Skeleton
+- [ ] Logic chính
+- [ ] Test
+- [ ] Dockerfile chạy được trong CI

@@ -1,68 +1,38 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
+# Monorepo: file này chỉ chứa cấu hình công cụ (ruff, pytest, mypy).
+# Thư viện của từng dịch vụ khai báo trong requirements.txt riêng của dịch vụ đó.
 [project]
 name = "cryptopulse"
 version = "0.1.0"
 description = "Simulated crypto market with automated ML lifecycle and DevOps"
 readme = "README.md"
 requires-python = ">=3.11"
-authors = [
-    { name = "Minh", email = "your-email@example.com" }
-]
-# Các thư viện phụ thuộc dùng chung cơ bản nhất
-dependencies = [
-    "pydantic>=2.5.0",
-    "python-dotenv>=1.0.0",
-]
+license = { text = "MIT" }
+authors = [{ name = "MinhLight2406" }]
 
-# Các gói cài đặt bổ sung cho môi trường phát triển (Dev)
-[project.optional-dependencies]
-dev = [
-    "pytest>=8.0.0",
-    "pytest-cov>=4.1.0",
-    "ruff>=0.3.0",
-    "mypy>=1.9.0",
-    "pre-commit>=3.6.0",
-]
-
-# ==========================================
-# Cấu hình PYTEST (Chạy test tự động)
-# ==========================================
+# ---------- pytest ----------
 [tool.pytest.ini_options]
-minversion = "7.0"
-testpaths = ["tests"]
-# Dòng quan trọng: Giúp pytest tự nhận diện thư mục libs và root mà không cần cài đặt phức tạp
+minversion = "8.0"
+testpaths = ["tests", "services"]
 pythonpath = [".", "libs"]
 addopts = "-ra -q --strict-markers"
 
-# ==========================================
-# Cấu hình RUFF (Linter & Code Formatter)
-# ==========================================
+# ---------- ruff ----------
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+extend-exclude = ["data", "apps/web"]
 
 [tool.ruff.lint]
-# E: Lỗi cú pháp (pycodestyle)
-# F: Lỗi logic/import thừa (Pyflakes)
-# I: Tự động sắp xếp import (isort)
-# W: Cảnh báo định dạng (Warning)
-# UP: Gợi ý nâng cấp cú pháp Python mới (pyupgrade)
-select = ["E", "F", "I", "W", "UP"]
-ignore = []
+select = ["E", "F", "I", "W", "UP", "B"]
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 
-# ==========================================
-# Cấu hình MYPY (Kiểm tra Type Hinting)
-# ==========================================
+# ---------- mypy (chưa chạy trong CI, bật sau) ----------
 [tool.mypy]
 python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
-disallow_untyped_defs = false  # Cho phép linh hoạt ở giai đoạn đầu
+disallow_untyped_defs = false
 ignore_missing_imports = true

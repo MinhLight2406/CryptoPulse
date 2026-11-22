@@ -1,8 +1,9 @@
-# Machine Learning Assets
+# ml
 
-This directory contains the ML research and lifecycle pipeline assets:
-- `features/`: Feature definitions and transformation pipelines.
-- `training/`: Model training scripts and hyperparameter tuning.
-- `evaluation/`: Backtesting and offline validation notebooks.
-- `drift/`: Drift detection algorithms and baseline references.
-- `notebooks/`: Exploratory Data Analysis (EDA) and experimental notebooks.
+- `features/`   code tính đặc trưng, dùng chung cho train và serve
+- `training/`   huấn luyện, walk-forward validation, log MLflow
+- `evaluation/` so với baseline, calibration, AUC
+- `drift/`      PSI / KS-test
+- `notebooks/`  khám phá dữ liệu
+
+Quy tắc: không dùng dữ liệu sau thời điểm dự đoán; không chia train/test ngẫu nhiên.

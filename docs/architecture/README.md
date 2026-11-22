@@ -1,32 +1,22 @@
-# CryptoPulse Architecture
+# Kiến trúc
 
-CryptoPulse provides an end-to-end simulated crypto market with a complete ML lifecycle.
-
-## High-Level Architecture Flow
-
-```
-[ Historical Data / Scripts ]
-            │
-            ▼
-    [ Replayer Service ]  ◄── [ Virtual Clock ]
-            │
-            ▼ (Topic: market.ticks)
-  [ Feature Service ]
-            │
-            ▼ (Topic: features.streaming)
-   [ Inference Service ] (Champion / Challenger)
-      │               │
-      ▼               ▼ (Topic: inference.predictions)
-[ Evaluator Service ] [ Drift Monitor Service ]
-      │                         │
-      ▼                         ▼
-[ Metrics / Postgres ]   [ Retrain Trigger / Alerts ]
+```mermaid
+flowchart LR
+  P[(Parquet lịch sử)] --> R[Replayer + đồng hồ ảo]
+  R -->|trades| K[(Redpanda)]
+  K --> F[Feature Service]
+  F -->|features| K
+  F --> CH[(ClickHouse)]
+  K --> I[Inference: champion/shadow/canary]
+  ML[(MLflow Registry)] --> I
+  I -->|predictions| K
+  K --> E[Evaluator]
+  E -->|labels| K
+  K --> D[Drift Monitor]
+  D -->|drift-events| DG[Dagster: retrain]
+  DG --> ML
+  CH --> API[FastAPI]
+  API --> W[Web]
 ```
 
-## Services Overview
-- **Replayer:** Emits ticks according to the Virtual Clock.
-- **Feature Service:** Derives real-time streaming indicators.
-- **Inference:** Produces predictions for live pairs using active models.
-- **Evaluator:** Evaluates accuracy against delayed ground truth.
-- **Drift Monitor:** Tracks statistical shifts in features and predictions.
-- **API:** Web/API gateway for user interaction and monitoring.
+Ba vòng lặp ML: **dự đoán** (mỗi phút) → **chấm điểm** (khi nhãn đến) → **học lại** (hằng ngày hoặc khi drift).

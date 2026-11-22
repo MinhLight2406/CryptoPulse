@@ -1,0 +1,6 @@
+# Nhóm đầu tư dùng cho danh sách "theo nhóm"
+blue_chip: [BTC, ETH]
+layer_1: [SOL, ADA, AVAX]
+defi: [UNI, AAVE]
+meme: [DOGE, SHIB]
+infra_ai: [FET, RNDR]
