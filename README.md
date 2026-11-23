@@ -29,7 +29,6 @@ pip install -r requirements-dev.txt
 |---|---|
 | Redpanda Console | http://localhost:8080 |
 | MLflow | http://localhost:5000 |
-| MinIO Console | http://localhost:9001 |
 | ClickHouse HTTP | http://localhost:8123 |
 
 ## Cấu trúc

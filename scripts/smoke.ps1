@@ -12,7 +12,6 @@ function Check($name, $url) {
 
 Check "Redpanda Console" "http://localhost:8080"
 Check "MLflow"           "http://localhost:5000"
-Check "MinIO"            "http://localhost:9002/minio/health/live"
 Check "ClickHouse"       "http://localhost:8123/ping"
 
 $pong = docker compose -f infra/compose/docker-compose.yml --env-file .env exec -T redis redis-cli ping 2>$null
