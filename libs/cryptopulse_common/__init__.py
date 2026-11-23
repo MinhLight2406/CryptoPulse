@@ -1,4 +1,4 @@
-from . import topics
+from . import klines, topics
 from .clock import VirtualClock
 
-__all__ = ["VirtualClock", "topics"]
+__all__ = ["VirtualClock", "klines", "topics"]
