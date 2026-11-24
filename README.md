@@ -51,8 +51,8 @@ scripts/        script PowerShell chạy trên máy
 
 | Giai đoạn | Nội dung | Trạng thái |
 |---|---|---|
-| 0 | Nền móng: khung dự án, hạ tầng local, kiểm tra | Đang làm |
-| 1 | Dữ liệu + Replayer | Chưa |
+| 0 | Nền móng: khung dự án, hạ tầng local, kiểm tra | Xong |
+| 1 | Dữ liệu + Replayer + ghi ClickHouse | Xong |
 | 2 | Feature + danh sách tăng/giảm | Chưa |
 | 3 | ML v1 (baseline, walk-forward) | Chưa |
 | 4 | ML live (inference, evaluator) | Chưa |
@@ -64,6 +64,8 @@ scripts/        script PowerShell chạy trên máy
 
 | Chỉ số | Giá trị |
 |---|---|
+| Replayer vào Redpanda (events/giây, 7195 sự kiện) | khoảng 10.000 |
+| Replay 2 lần, ClickHouse FINAL khớp Parquet | Đạt (7195 = 7195) |
 | AUC / accuracy so với baseline | _chưa đo_ |
 | Độ trễ inference p95 | _chưa đo_ |
 | Thời gian CI trước/sau cache | _chưa đo_ |
