@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Đầu vào | Topic predictions, trades |
+| Đầu vào | Topic predictions, candles |
 | Đầu ra | Topic labels, ClickHouse |
 
 ## Trạng thái

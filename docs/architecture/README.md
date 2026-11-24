@@ -3,7 +3,7 @@
 ```mermaid
 flowchart LR
   P[(Parquet lịch sử)] --> R[Replayer + đồng hồ ảo]
-  R -->|trades| K[(Redpanda)]
+  R -->|candles| K[(Redpanda)]
   K --> F[Feature Service]
   F -->|features| K
   F --> CH[(ClickHouse)]

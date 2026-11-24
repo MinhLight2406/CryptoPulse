@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Đầu vào | Topic trades |
+| Đầu vào | Topic candles |
 | Đầu ra | Topic features, ClickHouse, Redis |
 
 ## Trạng thái

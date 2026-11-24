@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Đầu vào | File Parquet trong data/parquet/ |
-| Đầu ra | Topic trades |
+| Đầu ra | Topic candles |
 
 ## Trạng thái
 - [ ] Skeleton
