@@ -7,8 +7,26 @@ Quy tắc quan trọng: một nến chỉ "được biết" khi nó đã đóng,
 
 import json
 from dataclasses import asdict, dataclass
+from datetime import UTC, datetime
 
 SCHEMA_VERSION = 1
+
+# Thứ tự cột khi ghi vào ClickHouse (bảng candles); phải khớp CandleEvent.as_row().
+CANDLE_COLUMNS = [
+    "symbol",
+    "interval_ms",
+    "open_time",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "quote_volume",
+    "trades",
+    "taker_buy_base",
+    "taker_buy_quote",
+    "schema_version",
+]
 
 
 @dataclass(frozen=True)
@@ -47,6 +65,24 @@ class CandleEvent:
             trades=int(row["trades"]),
             taker_buy_base=float(row["taker_buy_base"]),
             taker_buy_quote=float(row["taker_buy_quote"]),
+        )
+
+    def as_row(self) -> tuple:
+        """Một dòng để ghi vào ClickHouse, theo đúng thứ tự CANDLE_COLUMNS."""
+        return (
+            self.symbol,
+            self.interval_ms,
+            datetime.fromtimestamp(self.open_time / 1000, UTC),
+            self.open,
+            self.high,
+            self.low,
+            self.close,
+            self.volume,
+            self.quote_volume,
+            self.trades,
+            self.taker_buy_base,
+            self.taker_buy_quote,
+            self.schema_version,
         )
 
     def to_json(self) -> bytes:

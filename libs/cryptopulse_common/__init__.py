@@ -1,4 +1,4 @@
-from . import events, klines, replay, topics
+from . import batching, events, klines, replay, topics
 from .clock import VirtualClock
 
-__all__ = ["VirtualClock", "events", "klines", "replay", "topics"]
+__all__ = ["VirtualClock", "batching", "events", "klines", "replay", "topics"]
