@@ -1,2 +1,2 @@
-confluent-kafka>=2.4
+confluent-kafka>=2.16.2
 clickhouse-connect>=0.8
